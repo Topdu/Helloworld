@@ -1,0 +1,34 @@
+int main(int argc, char* argv[])
+{
+	TestFunction();
+	
+	return 0;
+}
+void TestFunction()
+{
+	//检测自检函数返回值，并打印各个返回值所代表的情况
+	int sysback;
+	sysback=SystemInit();
+	if(sysback==1)
+		printf("函数正确执行，系统自检无问题，参数正确加载。\n");
+	if(sysback==0)
+		printf("系统自检有误找不到SysConf目录\n");
+	if(sysback==-1)
+		printf("系统自检有误，找不到SysConf目录下的SysParam.txt文件\n");
+	if(sysback==-2)
+		printf("SysParam.txt文件打开失败\n");
+	if(sysback==-3)
+		printf("用户自定义的存放用户指令文件的目录不存在\n");
+	if(sysback==-4)
+		printf("用户自定义的存放用户历史仿真文件的目录不存在\n");
+	if(sysback==-5)
+		printf("电梯楼层参数有误\n");
+	if(sysback==-6)
+		printf("电梯动画仿真延迟参数有误\n");
+	if(sysback==-7)
+		printf("实际读出的系统参数个数与文件第一行声明的参数个数不符\n");
+	if(sysback==-8)
+		printf("从参数文件中没有找到任何系统定义的参数\n");
+	ShowMenu();
+
+}
